@@ -29,10 +29,10 @@ function NewTodoForm({ todos, onCreate }) {
   );
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   todos: state.todos,
 });
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   onCreate:text=> dispatch(createTodo(text)),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(NewTodoForm);
