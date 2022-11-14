@@ -1,7 +1,7 @@
 import React from "react";
 import "./TodoItem.css"
 
-export default function TodoItem({ todo,onRemove,onCompleted }) {
+export default function TodoItem({ todo,onRemove,onCompleted,onAlert }) {
   console.log("TodoItem",todo)
   return (
     <div className="todo-item-container">
@@ -11,7 +11,7 @@ export default function TodoItem({ todo,onRemove,onCompleted }) {
         onClick={()=>onCompleted(todo.text)}
         className="completed-button">Marked as completed </button>}
         <button
-        onClick={()=>onRemove(todo.text)}
+        onClick={()=>{onRemove(todo.text) ; onAlert(todo.text)}}
         className="remove-button"> Remove </button>
       </div>
     </div>
