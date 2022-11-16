@@ -5,15 +5,15 @@ export const createTodo = (text) => ({
 });
 
 export const REMOVE_TODO = "REMOVE-TODO";
-export const removeTodo = (text) => ({
+export const removeTodo = (Todo) => ({
   type: REMOVE_TODO,
-  payload: text,
+  payload: Todo,
 });
 
 export const COMPLETE_TODO = "COMPLETE_TODO";
-export const completeTodo = (text) => ({
+export const completeTodo = (completeTodo) => ({
   type: COMPLETE_TODO,
-  payload: text,
+  payload: completeTodo,
 });
 
 export const LOAD_TODOS_IN_PROGRESS = "LOAD_TODOS_IN_PROGRESS";
@@ -34,3 +34,9 @@ export const LoadTodosFailure = () => ({
   type: LOAD_TODOS_FAILURE,
 
 });
+
+export const ADD_TODO = "ADD_TODO";
+export const addTodo = (todo) => ({
+  type:ADD_TODO,
+  payload: todo,
+})

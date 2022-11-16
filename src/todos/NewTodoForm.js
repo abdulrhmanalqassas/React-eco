@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { createTodo } from "./actions";
 import "./NewTodoForm.css";
 
-function NewTodoForm({ todos, onCreate }) {
+function NewTodoForm({ todos, onCreate, onAddTodo }) {
   const [inputValue, setInputValue] = useState("");
   return (
     <div className="new-todo-form">
@@ -16,10 +16,11 @@ function NewTodoForm({ todos, onCreate }) {
       ></input>
       <button
         onClick={() => {
-            const isDuplicateText = todos.some(todo=>
-                {todo})
-          onCreate(inputValue);
-          setInputValue("");
+          const isDuplicateText =
+          todos.some(todo => todo.text === inputValue);
+          if(!isDuplicateText ){
+          onAddTodo(inputValue);
+          setInputValue("");}else alert(`you add ${inputValue}, to your todos before`)
         }}
         className="new-todo-button"
       >
@@ -29,10 +30,10 @@ function NewTodoForm({ todos, onCreate }) {
   );
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   todos: state.todos,
 });
-const mapDispatchToProps = dispatch => ({
-  onCreate:text=> dispatch(createTodo(text)),
+const mapDispatchToProps = (dispatch) => ({
+  onCreate: (text) => dispatch(createTodo(text)),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(NewTodoForm);

@@ -1,18 +1,28 @@
-import React,{useEffect} from "react";
+import React, { useEffect } from "react";
 import NewTodoForm from "./NewTodoForm";
 import TodoItem from "./TodoItem";
 import { connect } from "react-redux";
-import { completeTodo, removeTodo } from "./actions";
-import { displayAlert,loadTodos } from "./thunks";
+import {
+  displayAlert,
+  loadTodos,
+  addTodoRequest,
+  removeTodoRequest,
+  updateTodoRequest
+} from "./thunks";
 import "./TodoList.css";
 
-function TodoList({ todos, onRemove, onCompleted, onAlert, isLoading ,startLoadingTodos}) {
-
-  useEffect(()=>{
-   startLoadingTodos();
-  },[]
-    
-  )
+function TodoList({
+  todos=[],
+  onRemove,
+  onCompleted,
+  onAlert,
+  isLoading,
+  startLoadingTodos,
+  onAddTodo,
+}) {
+  useEffect(() => {
+    startLoadingTodos();
+  }, []);
 
   const loading = (
     <>
@@ -22,7 +32,7 @@ function TodoList({ todos, onRemove, onCompleted, onAlert, isLoading ,startLoadi
 
   const content = (
     <>
-      <NewTodoForm />
+      <NewTodoForm onAddTodo={onAddTodo} />
       <section className="list-wrapper">
         {todos.map((todo) => (
           <TodoItem
@@ -44,9 +54,10 @@ const mapStateToProps = (state) => ({
   isLoading: state.isLoading,
 });
 const mapDispatchToProps = (dispatch) => ({
-  startLoadingTodos :()=> dispatch(loadTodos()),
-  onRemove: (text) => dispatch(removeTodo(text)),
-  onCompleted: (text) => dispatch(completeTodo(text)),
+  startLoadingTodos: () => dispatch(loadTodos()),
+  onRemove: (id) => dispatch(removeTodoRequest(id)),
+  onCompleted: (id) => dispatch(updateTodoRequest(id)),
   onAlert: (text) => dispatch(displayAlert(text)),
+  onAddTodo: (text) => dispatch(addTodoRequest(text)),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
