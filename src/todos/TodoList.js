@@ -1,18 +1,35 @@
 import React, { useEffect } from "react";
 import NewTodoForm from "./NewTodoForm";
+import styled from "styled-components";
 import TodoItem from "./TodoItem";
+import {
+  getTodosLoading,
+  getCompleteTodos,
+  getIncompleteTodos,
+} from "./selector";
 import { connect } from "react-redux";
 import {
   displayAlert,
   loadTodos,
   addTodoRequest,
   removeTodoRequest,
-  updateTodoRequest
+  updateTodoRequest,
 } from "./thunks";
 import "./TodoList.css";
 
+const G = styled.h1`
+
+margin:5rem;
+font : 100px
+font-family: Arial, Helvetica, sans-serif;
+color: red;
+
+
+`;
 function TodoList({
-  todos=[],
+ 
+  completeTodos,
+  incompleteTodos,
   onRemove,
   onCompleted,
   onAlert,
@@ -26,23 +43,31 @@ function TodoList({
 
   const loading = (
     <>
-      <h1>LOADING...</h1>
+      <G>
+      LOADING...
+      </G>
     </>
   );
-
+  const list = (todos) => (
+    <section className="list-wrapper">
+      {todos.map((todo) => (
+        <TodoItem
+          todo={todo}
+          onAlert={onAlert}
+          onCompleted={onCompleted}
+          onRemove={onRemove}
+        />
+      ))}
+    </section>
+  );
   const content = (
     <>
+    
       <NewTodoForm onAddTodo={onAddTodo} />
-      <section className="list-wrapper">
-        {todos.map((todo) => (
-          <TodoItem
-            todo={todo}
-            onAlert={onAlert}
-            onCompleted={onCompleted}
-            onRemove={onRemove}
-          />
-        ))}
-      </section>
+      <h1 style={{color:"white"}} >complete Todo</h1>
+      {list(completeTodos)}
+      <h1 style={{color:"white"}} >incomplete Todos</h1>
+      {list(incompleteTodos)}
     </>
   );
 
@@ -50,8 +75,9 @@ function TodoList({
 }
 
 const mapStateToProps = (state) => ({
-  todos: state.todos,
-  isLoading: state.isLoading,
+  completeTodos: getCompleteTodos(state),
+  incompleteTodos: getIncompleteTodos(state),
+  isLoading: getTodosLoading(state),
 });
 const mapDispatchToProps = (dispatch) => ({
   startLoadingTodos: () => dispatch(loadTodos()),

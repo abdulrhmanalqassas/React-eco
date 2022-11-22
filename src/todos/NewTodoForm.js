@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { getTodos } from "./selector";
 import { createTodo } from "./actions";
 import "./NewTodoForm.css";
 
@@ -16,11 +17,13 @@ function NewTodoForm({ todos, onCreate, onAddTodo }) {
       ></input>
       <button
         onClick={() => {
-          const isDuplicateText =
-          todos.some(todo => todo.text === inputValue);
-          if(!isDuplicateText ){
-          onAddTodo(inputValue);
-          setInputValue("");}else alert(`you add ${inputValue}, to your todos before`)
+          const isDuplicateText = todos.some(
+            (todo) => todo.text === inputValue
+          );
+          if (!isDuplicateText) {
+            onAddTodo(inputValue);
+            setInputValue("");
+          } else alert(`you add ${inputValue}, to your todos before`);
         }}
         className="new-todo-button"
       >
@@ -31,8 +34,10 @@ function NewTodoForm({ todos, onCreate, onAddTodo }) {
 }
 
 const mapStateToProps = (state) => ({
-  todos: state.todos,
+  todos: getTodos(state),
 });
+
+
 const mapDispatchToProps = (dispatch) => ({
   onCreate: (text) => dispatch(createTodo(text)),
 });

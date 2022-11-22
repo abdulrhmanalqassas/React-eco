@@ -13,6 +13,7 @@ export default function TodoItem({ todo,onRemove,onCompleted,onAlert }) {
         <button
         onClick={()=>onRemove(todo.id) }
         className="remove-button"> Remove </button>
+        <p>Created At : {Date(todo.createdAt)}</p>
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 
-const reducers = { todos , isLoading };
+const reducers = { todos };
 const persistConfig = {
   key: "root",
   storage,
