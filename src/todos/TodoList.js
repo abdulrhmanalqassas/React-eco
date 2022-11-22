@@ -15,19 +15,21 @@ import {
   removeTodoRequest,
   updateTodoRequest,
 } from "./thunks";
-import "./TodoList.css";
 
-const G = styled.h1`
+const Loading = styled.h1`
 
 margin:5rem;
 font : 100px
 font-family: Arial, Helvetica, sans-serif;
 color: red;
-
-
 `;
+
+const ListWarpper = styled.section`
+  max-width: 700px;
+  margin: auto;
+`;
+
 function TodoList({
- 
   completeTodos,
   incompleteTodos,
   onRemove,
@@ -43,13 +45,11 @@ function TodoList({
 
   const loading = (
     <>
-      <G>
-      LOADING...
-      </G>
+      <Loading>LOADING...</Loading>
     </>
   );
   const list = (todos) => (
-    <section className="list-wrapper">
+    <ListWarpper>
       {todos.map((todo) => (
         <TodoItem
           todo={todo}
@@ -58,15 +58,14 @@ function TodoList({
           onRemove={onRemove}
         />
       ))}
-    </section>
+    </ListWarpper>
   );
   const content = (
     <>
-    
       <NewTodoForm onAddTodo={onAddTodo} />
-      <h1 style={{color:"white"}} >complete Todo</h1>
+      <h1 style={{ color: "white" }}>complete Todo</h1>
       {list(completeTodos)}
-      <h1 style={{color:"white"}} >incomplete Todos</h1>
+      <h1 style={{ color: "white" }}>incomplete Todos</h1>
       {list(incompleteTodos)}
     </>
   );
