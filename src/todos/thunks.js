@@ -22,9 +22,10 @@ export const loadTodos = () => async (dispatch, getState) => {
   }
 };
 
-export const addTodoRequest = (text) => async (dispatch) => {
+export const addTodoRequest = (text,tittle="new todo") => async (dispatch) => {
+  if (text!==""){
   try {
-    const body = JSON.stringify({ text });
+    const body = JSON.stringify({ text , tittle});
     const response = await fetch(url, {
       headers: {
         "Content-Type": "application/json",
@@ -36,7 +37,8 @@ export const addTodoRequest = (text) => async (dispatch) => {
     dispatch(addTodo(todo));
   } catch (e) {
     dispatch(displayAlert(e));
-  }
+  }}
+  else displayAlert("cant add empty todo to the list ") ;
 };
 
 export const removeTodoRequest = (id) => async (dispatch) => {
