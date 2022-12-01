@@ -1,60 +1,90 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { getTodos } from "./selector";
-import { createTodo } from "./actions";
+import { addTodo } from "./actions";
 import styled from "styled-components";
 
 const NewForm = styled.div`
-  border-radius: 8px;
-  padding: 16px;
+  margin-top: 100px;
   text-align: center;
-  box-shadow: 0 4px 8px grey;
+  z-indx: 5;
 `;
 const NewTodoInput = styled.input`
+  color: #f2f2f2;
+  border: 1px solid #0d0d0d;
+  border-radius: 8px;
+  margin: 5px;
+  background: #454545;
   font-size: 16px;
   padding: 8px;
   border: none;
-  border-bottom: 2px solid #ddd;
-  border-radius: 8px;
-  width: 70%;
+  width: 100%;
   outline: none;
 `;
+const InputWarper = styled.div`
+margin-top:100px;
+  width: 50%;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  margin 0 auto ;
+  align-items: center;
+  padding: 8px;
+`;
+
 
 const NewTodoButt = styled.button`
   font-size: 16px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 140%;
+  color: #f2f2f2;
   padding: 8px;
+  min-width: 20%;
   border: none;
   border-radius: 8px;
   outline: none;
   cursor: pointer;
   margin-left: 8px;
-  width: 20%;
-  background-color: #22ee22;
+  background: #1e6f9f;
 `;
 
 function NewTodoForm({ todos, onCreate, onAddTodo }) {
   const [inputValue, setInputValue] = useState("");
+  const [tittleValue, setTittleValue] = useState("");
   return (
     <NewForm>
-      <NewTodoInput
-        type="text"
-        placeholder="type your new todo here"
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-      ></NewTodoInput>
-      <NewTodoButt
-        onClick={() => {
-          const isDuplicateText = todos.some(
-            (todo) => todo.text === inputValue
-          );
-          if (!isDuplicateText) {
-            onAddTodo(inputValue);
-            setInputValue("");
-          } else alert(`you add ${inputValue}, to your todos before`);
-        }}
-      >
-        Add todo
-      </NewTodoButt>
+      <InputWarper>
+        <NewTodoInput
+          type="text"
+          placeholder="type your Tittle here"
+          value={tittleValue}
+          onChange={(e) => setTittleValue(e.target.value)}
+        ></NewTodoInput>
+        <NewTodoInput
+          type="text"
+          placeholder="type your new todo here"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+        ></NewTodoInput>
+
+        <NewTodoButt
+          onClick={() => {
+            const isDuplicateText = todos.some(
+              (todo) => todo.text === inputValue
+            );
+            if (!isDuplicateText) {
+              onAddTodo(inputValue, tittleValue);
+              setInputValue("");
+              setTittleValue("");
+            } else alert(`you add ${inputValue}, to your todos before`);
+          }}
+        >
+          Add todo
+        </NewTodoButt>
+      </InputWarper>
     </NewForm>
   );
 }
@@ -64,6 +94,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onCreate: (text) => dispatch(createTodo(text)),
+  onCreate: (text, tittle) => dispatch(addTodo(text, tittle)),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(NewTodoForm);
