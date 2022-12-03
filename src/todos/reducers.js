@@ -5,14 +5,12 @@ import {
   LOAD_TODOS_IN_PROGRESS,
   LOAD_TODOS_SUCCESS,
   ADD_TODO,
-  completeTodo,
 } from "./actions";
 
 const initState = {
   isLoading: false,
   data: [],
 };
-
 
 export const todos = (state = initState, action) => {
   const { type, payload } = action;
@@ -46,8 +44,10 @@ export const todos = (state = initState, action) => {
         data: todos,
       };
     }
-    case LOAD_TODOS_IN_PROGRESS:return {...state , isLoading: true}
-    case LOAD_TODOS_FAILURE:return {...state , isLoading: false};
+    case LOAD_TODOS_IN_PROGRESS:
+      return { ...state, isLoading: true };
+    case LOAD_TODOS_FAILURE:
+      return { ...state, isLoading: false };
     default: {
       return state;
     }

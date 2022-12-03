@@ -32,9 +32,7 @@ margin-top:100px;
   padding: 8px;
 `;
 
-
 const NewTodoButt = styled.button`
-  font-size: 16px;
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
@@ -51,7 +49,7 @@ const NewTodoButt = styled.button`
   background: #1e6f9f;
 `;
 
-function NewTodoForm({ todos, onCreate, onAddTodo }) {
+function NewTodoForm({ todos, onAddTodo }) {
   const [inputValue, setInputValue] = useState("");
   const [tittleValue, setTittleValue] = useState("");
   return (

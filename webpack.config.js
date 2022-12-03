@@ -12,34 +12,33 @@ module.exports = {
         test: /\.(png|jpe?g|gif)$/i,
         use: [
           {
-            loader: 'file-loader',
+            loader: "file-loader",
           },
         ],
       },
       {
         test: /\.(js|jsc)$/,
-        exclude:/(node_modules)/,
-        loader:"babel-loader",
-        options:{presets:["@babel/env"]}
+        exclude: /(node_modules)/,
+        loader: "babel-loader",
+        options: { presets: ["@babel/env"] },
       },
       {
         test: /\.css$/,
-        use:["style-loader","css-loader"],
+        use: ["style-loader", "css-loader"],
       },
     ],
   },
-  resolve : {extensions :["*",'.js','.jsx']},
-  output:{
-    path : path.resolve(__dirname,'dist/'),
-    publicPath:'/dist/',
-    filename:'bundle.js'
+  resolve: { extensions: ["*", ".js", ".jsx"] },
+  output: {
+    path: path.resolve(__dirname, "dist/"),
+    publicPath: "/dist/",
+    filename: "bundle.js",
   },
-  devServer:{
+  devServer: {
     static: {
-      directory: path.join(__dirname,'/public'),
+      directory: path.join(__dirname, "/public"),
     },
-    port:3000,
-  
+    port: 3000,
   },
-  plugins:[new webpack.HotModuleReplacementPlugin()]
+  plugins: [new webpack.HotModuleReplacementPlugin()],
 };

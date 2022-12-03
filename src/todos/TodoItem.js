@@ -37,7 +37,7 @@ const Button = styled.button`
 `;
 
 const CompletedButton = styled(Button)`
-  background-color:#5E60CE;
+  background-color: #5e60ce;
 `;
 
 const RemoveButton = styled(Button)`
@@ -47,8 +47,8 @@ const RemoveButton = styled(Button)`
 const TodoText = styled.h4`
   max-width: 100%;
   height: fit-content;
-  font-size:17px;
-  margin:5px;
+  font-size: 17px;
+  margin: 5px;
   padding-left: 10px;
   border-bottom: gray solid 2px;
   overflow: hidden;
@@ -58,7 +58,7 @@ const TodoText = styled.h4`
 export default function TodoItem({ todo, onRemove, onCompleted }) {
   return (
     <TodoItemContainer createdAt={todo.createdAt}>
-      <h1 style={{margin: "0"}} >{todo.tittle}</h1>
+      <h1 style={{ margin: "0" }}>{todo.tittle}</h1>
       <TodoText>{todo.text}</TodoText>
       <ButtonsContainer>
         {!todo.isCompleted && (
@@ -76,7 +76,7 @@ export default function TodoItem({ todo, onRemove, onCompleted }) {
           <img src={trash}></img>
         </RemoveButton>
       </ButtonsContainer>
-      <p style={{margin: "0"}} >Created At : {Date(todo.createdAt)}</p>
+      <p style={{ margin: "0" }}>Created At : {Date(todo.createdAt)}</p>
     </TodoItemContainer>
   );
 }

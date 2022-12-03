@@ -15,30 +15,26 @@ import {
   removeTodoRequest,
   updateTodoRequest,
 } from "./thunks";
-import rocket from "../images/rocket.png" 
-
+import rocket from "../images/rocket.png";
 
 const Header = styled.header`
-display: flex;
-position : fixed;
-top:0;
-width: 100%;
-z-index: -2;
-align-items:center;
-height: 140px;
-background-color:rgb(7, 7, 7);
-
-`
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: -2;
+  align-items: center;
+  height: 140px;
+  background-color: rgb(7, 7, 7);
+`;
 const LogoText = styled.h1`
-background: linear-gradient(0deg, #5E60CE 0%, #00d9f5 100%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
-margin:0 auto;
-font-size: 57px;
-`
-
-
+  background: linear-gradient(0deg, #5e60ce 0%, #00d9f5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 auto;
+  font-size: 57px;
+`;
 
 const Loading = styled.h1`
 margin:5rem;
@@ -48,15 +44,14 @@ color: #4EA8DE;
 `;
 
 const TodoHeader = styled.h3`
-  background: linear-gradient(0deg, #5E60CE 0%, #00d9f5 100%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
-font-size: 25px;
-  margin-left:10% ;
-`
+  background: linear-gradient(0deg, #5e60ce 0%, #00d9f5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 25px;
+  margin-left: 10%;
+`;
 const ListWrapper = styled.section`
-
   max-width: 700px;
   margin: auto;
 `;
@@ -84,7 +79,7 @@ function TodoList({
     <ListWrapper>
       {todos.map((todo) => (
         <TodoItem
-        key={todo.id}
+          key={todo.id}
           todo={todo}
           onAlert={onAlert}
           onCompleted={onCompleted}
@@ -94,9 +89,12 @@ function TodoList({
     </ListWrapper>
   );
   const content = (
-    <  >
-       <Header>
-        <LogoText  > <img  alt="logo" style={{width:"40px",}} src={rocket} ></img> TODO</LogoText>
+    <>
+      <Header>
+        <LogoText>
+          {" "}
+          <img alt="logo" style={{ width: "40px" }} src={rocket}></img> TODO
+        </LogoText>
       </Header>
       <NewTodoForm onAddTodo={onAddTodo} />
       <TodoHeader>complete Todo</TodoHeader>
@@ -119,6 +117,6 @@ const mapDispatchToProps = (dispatch) => ({
   onRemove: (id) => dispatch(removeTodoRequest(id)),
   onCompleted: (id) => dispatch(updateTodoRequest(id)),
   onAlert: (text) => dispatch(displayAlert(text)),
-  onAddTodo: (text,tittle) => dispatch(addTodoRequest(text,tittle)),
+  onAddTodo: (text, tittle) => dispatch(addTodoRequest(text, tittle)),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
