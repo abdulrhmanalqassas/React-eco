@@ -1,24 +1,9 @@
+
 {
-  "name": "react-eco",
-  "version": "1.0.0",
-  "homepage": "https://abdulrhmanalqassas.github.io/React-eco",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "dev": "npx webpack-dev-server --mode development",
-    "build": "react-scripts build",
-    "test": "mocha \"src/**/*.test.js\" --require @babel/register --recursive",
-    "go-shit": "npx webpack-dev-server --mode development"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "gh-pages": "^5.0.0",
-    "webpack-cli": "^5.0.1"
-  },
+  "name": "car-app",
+  "version": "0.1.0",
+  "homepage": "https://abdulrhmanalqassas.github.io/sideup",
+  "private": true,
   "dependencies": {
     "@babel/preset-env": "^7.20.2",
     "@babel/runtime": "^7.20.1",
@@ -33,5 +18,34 @@
     "redux-thunk": "^2.4.2",
     "reselect": "^4.1.7",
     "styled-components": "^5.3.6"
+  },
+  "scripts": {
+    "predeploy":"npm run build",
+    "deploy":"gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
   }
 }
