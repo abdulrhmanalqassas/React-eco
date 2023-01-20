@@ -7,8 +7,19 @@
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
-/******/ 	var __webpack_modules__ = ({});
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/***/ (() => {
+
+eval("throw new Error(\"Module build failed (from ./node_modules/babel-loader/lib/index.js):\\nError [ERR_MODULE_NOT_FOUND]: Cannot find package '@babel/preset-env' imported from C:\\\\Users\\\\el_ksass\\\\Desktop\\\\React-eco\\\\babel-virtual-resolve-base.js\\n    at new NodeError (C:\\\\Users\\\\el_ksass\\\\Desktop\\\\React-eco\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\vendor\\\\import-meta-resolve.js:2240:5)\\n    at packageResolve (C:\\\\Users\\\\el_ksass\\\\Desktop\\\\React-eco\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\vendor\\\\import-meta-resolve.js:2776:9)\\n    at moduleResolve (C:\\\\Users\\\\el_ksass\\\\Desktop\\\\React-eco\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\vendor\\\\import-meta-resolve.js:2804:18)\\n    at defaultResolve (C:\\\\Users\\\\el_ksass\\\\Desktop\\\\React-eco\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\vendor\\\\import-meta-resolve.js:2835:13)\\n    at C:\\\\Users\\\\el_ksass\\\\Desktop\\\\React-eco\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\vendor\\\\import-meta-resolve.js:2855:14\\n    at Generator.next (<anonymous>)\\n    at asyncGeneratorStep (C:\\\\Users\\\\el_ksass\\\\Desktop\\\\React-eco\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\vendor\\\\import-meta-resolve.js:45:103)\\n    at _next (C:\\\\Users\\\\el_ksass\\\\Desktop\\\\React-eco\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\vendor\\\\import-meta-resolve.js:46:194)\\n    at C:\\\\Users\\\\el_ksass\\\\Desktop\\\\React-eco\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\vendor\\\\import-meta-resolve.js:46:364\\n    at new Promise (<anonymous>)\");\n\n//# sourceURL=webpack://react-eco/./src/index.js?");
+
+/***/ })
+
+/******/ 	});
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
@@ -69,7 +80,7 @@
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("bbf02d4b68cdf0a48a59")
+/******/ 		__webpack_require__.h = () => ("c68cf8d6762182016cc7")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
@@ -1039,6 +1050,9 @@
 /************************************************************************/
 /******/ 	
 /******/ 	// module cache are used so entry inlining is disabled
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
 /******/ 	
 /******/ })()
 ;
