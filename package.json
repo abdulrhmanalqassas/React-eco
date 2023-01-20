@@ -1,10 +1,25 @@
 
+
+
+
 {
   "name": "car-app",
   "version": "0.1.0",
-  "homepage": "https://abdulrhmanalqassas.github.io/sideup",
+  "homepage": "https://abdulrhmanalqassas.github.io/React-eco",
   "private": true,
   "dependencies": {
+    "@amcharts/amcharts5": "^5.2.47",
+    "apexcharts": "^3.36.3",
+    "i18next": "^22.4.9",
+    "i18next-browser-languagedetector": "^7.0.1",
+    "i18next-http-backend": "^2.1.1",
+    "react": "^18.2.0",
+    "react-apexcharts": "^1.4.0",
+    "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
+    "react-i18next": "^12.1.4",
+    "react-scripts": "5.0.1",
+    "styled-components": "^5.3.6",
     "@babel/preset-env": "^7.20.2",
     "@babel/runtime": "^7.20.1",
     "@reduxjs/toolkit": "^1.9.0",
