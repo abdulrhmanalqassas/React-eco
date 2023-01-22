@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/React-eco/static/css/main.ca77e664.css",
+    "main.js": "/React-eco/static/js/main.372eb13b.js",
+    "static/media/rocket.png": "/React-eco/static/media/rocket.b0ebafc03b7659e14ee0.png",
+    "index.html": "/React-eco/index.html",
+    "main.ca77e664.css.map": "/React-eco/static/css/main.ca77e664.css.map",
+    "main.372eb13b.js.map": "/React-eco/static/js/main.372eb13b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ca77e664.css",
+    "static/js/main.372eb13b.js"
+  ]
+}

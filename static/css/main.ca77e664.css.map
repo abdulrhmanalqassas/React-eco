@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.ca77e664.css","mappings":"AAAA,KACE,kBAAmB,CAGnB,sCAAyC,CADzC,QAAS,CADT,SAGF","sources":["App.css"],"sourcesContent":["body {\r\n  background: #262626;\r\n  padding: 0;\r\n  margin: 0;\r\n  font-family: Arial, Helvetica, sans-serif;\r\n}\r\n"],"names":[],"sourceRoot":""}
