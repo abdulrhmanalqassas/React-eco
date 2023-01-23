@@ -52,7 +52,7 @@ const NewTodoButt = styled.button`
 function NewTodoForm({ todos, onAddTodo }) {
   const [inputValue, setInputValue] = useState("");
   const [tittleValue, setTittleValue] = useState("");
-  return (+
+  return (
     <NewForm>
       <InputWarper>
         <NewTodoInput
