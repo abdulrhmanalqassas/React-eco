@@ -8,7 +8,7 @@ import {
   completeTodo,
 } from "./actions";
 
-const url = "http://localhost:8080/todos/";
+const url = "https://grumpy-life-jacket-bull.cyclic.app/todos/";
 
 export const loadTodos = () => async (dispatch, getState) => {
   try {
